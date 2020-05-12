@@ -24,7 +24,7 @@ export default function Footer() {
 
     return (
         <div id="contact" style={{
-            height: 310, backgroundColor: "#323232", width: "100%",
+            height: "100%", backgroundColor: "#323232", width: "100%",
             paddingTop: "3%", marginTop: "5%"
         }}>
             <div class="container" style={{ backgroundColor: "#323232" }}>

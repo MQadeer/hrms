@@ -5,33 +5,39 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
     navItem: {
-        marginRight:"5%",
+        marginRight: "5%",
         fontSize: 24
     }
 }));
 
-export default function Navbar () {
-    
+export default function Navbar() {
+
     const classes = useStyles();
-        return (
-            <div>
-                <nav className="navbar navbar-light bg-light navbar-expand-md ">
-                    <h1 className="navbar-brand" >HRMS</h1>
-                    <div className="collapse navbar-collapse " id="navitems">
-                        <ul className="navbar-nav ml-auto" style={{ marginRight: "10%" }}>
-                            <li className={classes.navItem} >
-                                <Link className="nav-link" to="/">Home</Link>
-                            </li>
-                            <li className={classes.navItem} >
-                                <a className="nav-link" href="#career">Career</a>
-                            </li>
-                            <li className={classes.navItem} >
-                                <a className="nav-link" href="#contact">About</a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </nav>
-            </div >
-        )
+    return (
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style={{ marginLeft: "60%" }}>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" className={classes.navItem}>
+                        <Link class="nav-link" to="/">Home </Link>
+                    </li>
+                    <li class="nav-item" className={classes.navItem}>
+                        <a className="nav-link" href="#career">Career</a>
+                    </li>
+
+                    <li class="nav-item" className={classes.navItem}>
+                        <a className="nav-link" href="#contact">About</a>
+                    </li>
+                    <li class="nav-item active" className={classes.navItem}>
+                        <Link class="nav-link" style={{color:"yellow"}} to="/AdminPanel">Admin</Link>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    )
 }
