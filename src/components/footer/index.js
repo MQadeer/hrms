@@ -27,9 +27,9 @@ export default function Footer() {
             height: "100%", backgroundColor: "#323232", width: "100%",
             paddingTop: "3%", marginTop: "5%"
         }}>
-            <div class="container" style={{ backgroundColor: "#323232" }}>
-                <div class="row">
-                    <div class="col-sm">
+            <div className="container" style={{ backgroundColor: "#323232" }}>
+                <div className="row">
+                    <div className="col-sm">
                         <h3 style={{ color: "white" }}>About us</h3>
                         <p className={classes.about}>
                             We are a group of people who work to gether <br />
@@ -39,7 +39,7 @@ export default function Footer() {
                             to provide more efficient services to new talents.
                         </p>
                     </div>
-                    <div class="col-sm" style={{ color: "grey", display: "flex", flexDirection: "column" }}>
+                    <div className="col-sm" style={{ color: "grey", display: "flex", flexDirection: "column" }}>
                         <h3 style={{ color: "white" }}>Contact info</h3>
                         <div className={classes.contactItem}>
                             <Icon >place</Icon><span className={classes.contactText}>Chenab market Faisalabad,Pakistan</span>

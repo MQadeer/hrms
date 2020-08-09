@@ -36,7 +36,7 @@ export default function Testimonies() {
 
   return (
     <div>
-      <h1 style={{ marginTop: "3%", marginLeft: "45%", fontWeight: "bolder" }}>Testimonials</h1>
+      <h1 style={{ marginTop: "3%",textAlign:"center", fontWeight: "bolder" }}>Testimonials</h1>
       <div className={classes.root}>
         <div className={classes.content}>
           <Avatar alt="Remy Sharp" src={require('../../images/person.jpg')} className={classes.large} />

@@ -1,43 +1,25 @@
 import React, { Component } from 'react';
-import SimpleImageSlider from "react-simple-image-slider";
-import config from '../../config';
 import { Icon } from '@material-ui/core';
-import Navbar from "../navbar/index";
+import Navigationbar from "../navbar/index";
 import Testimonies from "../testimonies/index";
 import CVform from "../cvForm/index";
 import officeImage from "../../images/office3.jpg"
 import Footer from "../footer/index";
-import { Link } from "react-router-dom";
+import ImageSlider from "../imageSlider/index";
+import { connect } from "react-redux";
 
 
-export default class Home extends Component {
+ class NHome extends Component {
     render() {
-        const images = [
-            { url: require("../../images/2.jpg") },
-            { url: require("../../images/3.jpg") },
-            { url: require("../../images/4.jpg") },
-        ];
         return (
             <div style={{ width: "100%" }}>
-                {/* <header class="container" style={{
-                    width: "100%", height: "15%", backgroundColor: config.appColor,
-                    paddingTop: "0.5%", paddingBottom: "0.5%", alignItems: "center"
-                }}>
-                    <span style={{ display: "flex", alignItems: "center", color: "white", marginLeft: "5%" }}>
-                        <Icon >mail</Icon><text>Ranaafeef123@gmail.com</text>
-                        <Icon style={{ marginLeft: "2%" }}>phone</Icon><text>0333-4565654</text>
-                        <Icon style={{ marginLeft: "65%", color: "yellow" }} >person</Icon>
-                        <Link style={{ color: "yellow" }} to="/AdminPanel">Admin Login</Link>
-                    </span>
-
-                </header> */}
-                <header  style={{
+                {/* <header  style={{
                     width: "100%", height: "15%", backgroundColor: config.appColor,
                     paddingTop: "0.5%", paddingBottom: "0.5%", alignItems: "center"
                 }}>
                     <div class="row" style={{ display: "flex", alignItems: "center",color:"white"}}>
                         <div class="col">
-                            <Icon >mail</Icon><text>Ranaafeef123@gmail.com</text>
+                            <Icon style={{fontSize:20,marginTop:"1%"}}>mail</Icon><text style={{fontSize:20,}}>Ranaafeef123@gmail.com</text>
                             <Icon style={{ marginLeft: "2%" }}>phone</Icon><text>0333-4565654</text>
                         </div>
                         <div class="col">
@@ -45,14 +27,12 @@ export default class Home extends Component {
                             <Link style={{ color: "yellow" }} to="/AdminPanel">Admin</Link>
                         </div>
                     </div>
-                </header>
-                <Navbar />
-                <div >
-                    <SimpleImageSlider width="100%" height="80%" slideDuration={0.5}
-                        images={images} />
-                </div>
-                <div class="container" style={{ marginTop: "39%" }}>
-                    <h1 style={{ color: "black", marginLeft: "45%", fontSize: 50, fontWeight: "bolder" }}>About Us</h1>
+                </header> */}
+                <Navigationbar logedIn={this.props.logedIn} userinfo={this.props.user}/>
+
+                <ImageSlider />
+                <div class="container" >
+                    <h1 style={{ color: "black", textAlign: "center", fontSize: 50, fontWeight: "bolder" }}>About Us</h1>
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
                             <h1>Employment opportunities for<br /> Professionals</h1>
@@ -91,7 +71,7 @@ export default class Home extends Component {
                 </div>
 
                 <div style={{ display: "flex", marginTop: "10%", flexDirection: "column" }}>
-                    <h1 style={{ color: "black", fontSize: 50, fontWeight: "bolder", alignSelf: "center" }}>Selection Process</h1>
+                    <h1 style={{ color: "black", fontSize: 50, fontWeight: "bolder", textAlign: "center" }}>Selection Process</h1>
                     <img src={require("../../images/selection.jpg")} style={{ height: "100%", width: "100%" }} />
                 </div>
 
@@ -104,4 +84,11 @@ export default class Home extends Component {
     }
 }
 
+const loginStatus = (store) => {
+    console.log("loged in user ", store.loginReducer.user)
+    console.log("login status ", store.loginReducer.logedIn)
+    return { logedIn: store.loginReducer.logedIn, user: store.loginReducer.user }
+}
 
+let Home = connect(loginStatus)(NHome);
+export default Home;
